@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><title>Student File Manager</title></head>
+<body>
+<h2>Upload File</h2>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
+
+<h2>Files</h2>
+<ul>
+{% for file in files %}
+    <li>
+        {{ file }} |
+        <a href="/download/{{ file }}">Download</a> |
+        <a href="/delete/{{ file }}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+</body>
+</html>
